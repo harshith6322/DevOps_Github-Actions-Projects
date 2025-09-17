@@ -21,6 +21,6 @@ jobs:
             date
             uptime
             last -a
-            top
+            ps aux
 
 
