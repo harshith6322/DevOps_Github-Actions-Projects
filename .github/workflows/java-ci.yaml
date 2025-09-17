@@ -24,7 +24,7 @@ jobs:
             cache: 'maven'
            
         - name: Lint Check
-          run: mvn checkstyle:check
+          run: mvn checkstyle:check > mvn_lint_check_logs.txt
 
         - name: Test
           run: |
@@ -34,13 +34,13 @@ jobs:
           run: |
             mvn clean install && ls ./target
         
-        # - name: Upload Artifact 
-        #   uses: actions/upload-artifact@v4.6.2
-        #   with:
-        #     name: targetfolder
-        #     path: "./target/"
-        #     if-no-files-found: error
-        #     retention-days: 2
+        - name: Upload Artifact 
+          uses: actions/upload-artifact@v4.6.2
+          with:
+            name: targetfolder
+            path: "./target/myweb-8.6.9.war"
+            if-no-files-found: error
+            retention-days: 2
 
         # - name: Testing
         #   run: |
