@@ -32,7 +32,15 @@ jobs:
 
         - name: Build With Maven
           run: |
-            mvn clean install && ls -lar 
+            mvn clean install && ls ./target
+        
+        # - name: Upload Artifact 
+        #   uses: actions/upload-artifact@v4.6.2
+        #   with:
+        #     name: targetfolder
+        #     path: "./target/"
+        #     if-no-files-found: error
+        #     retention-days: 2
 
         # - name: Testing
         #   run: |
