@@ -16,5 +16,11 @@ jobs:
         - name: CODE
           run: |
             echo "hi my name is harshith"
+            ls -lar
+            pwd
+            date
+            uptime
+            last -a
+            top
 
 
