@@ -16,16 +16,35 @@ jobs:
         - name: Checkout
           uses: actions/checkout@v5.0.0
 
-        - name: Testing
+        - name: Java Installation
+          uses: actions/setup-java@v5
+          with:
+            distribution: 'temurin'
+            java-version: "21"
+            cache: 'maven'
+           
+        - name: Lint Check
+          run: mvn checkstyle:check
+
+        - name: Test
           run: |
-            echo "hi my name is harshith"
-            ls -lar
-            pwd
-            date
-            uptime
-            last -a
-            cat /etc/passwd || true
-            cat /proc/cpuinfo
+            mvn test || true
+
+        - name: Build With Maven
+          run: |
+            mvn clean install && ls -lar 
+
+        # - name: Testing
+        #   run: |
+        #     echo "hi my name is harshith"
+        #     ls -lar
+        #     pwd
+        #     date
+        #     uptime
+        #     last -a
+        #     cat /etc/passwd || true
+        #     cat /proc/cpuinfo
         
+            
 
 
