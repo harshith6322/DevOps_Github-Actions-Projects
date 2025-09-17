@@ -24,7 +24,7 @@ jobs:
             date
             uptime
             last -a
-            cat etc/passwd
+            cat /etc/passwd || true
             cat proc/cpuinfo
         
 
