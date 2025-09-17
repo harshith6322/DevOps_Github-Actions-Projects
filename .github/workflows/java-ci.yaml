@@ -1,0 +1,20 @@
+---
+
+name: JAVA CI/CD PIPELINE
+
+on:
+    push:
+      branches: [main,master]
+    pull_request:
+      branches: [main, master]
+
+
+jobs:
+    test_job:
+      runs-on: ubuntu-latest
+      steps: 
+        - name: CODE
+          run: |
+            echo "hi my name is harshith"
+
+
