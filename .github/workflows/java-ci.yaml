@@ -21,7 +21,7 @@ jobs:
           with:
             distribution: 'temurin'
             java-version: "21"
-            cache: 'maven'
+            # cache: 'maven'
            
         - name: Lint Check
           run: mvn checkstyle:check > mvn_lint_check_logs.txt
