@@ -15,23 +15,19 @@ jobs:
       steps: 
         - name: Checkout
           uses: actions/checkout@v5.0.0
-
-        - name: Cache Maven repository
-          uses: actions/cache@v4
-          with:
-            path: ~/.m2/repository
-            key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-            restore-keys: |
-              ${{ runner.os }}-maven-
-
+ 
         - name: Java Installation
           uses: actions/setup-java@v5
           with:
             distribution: 'temurin'
-            java-version: "17"
+            java-version: "21"
             check-latest: true
-            # cache: 'maven'
-           
+        
+        - name: Maven Installation
+          run: |
+            sudo apt update
+            sudo apt install -y maven
+              
         - name: Lint Check
           run: mvn checkstyle:check > mvn_lint_check_logs.txt
         
