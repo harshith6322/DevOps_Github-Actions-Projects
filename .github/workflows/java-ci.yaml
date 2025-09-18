@@ -20,8 +20,8 @@ jobs:
           uses: actions/setup-java@v5
           with:
             distribution: 'temurin'
-            java-version: "21"
-            # cache: 'maven'
+            java-version: "17"
+            cache: 'maven'
            
         - name: Lint Check
           run: mvn checkstyle:check > mvn_lint_check_logs.txt
